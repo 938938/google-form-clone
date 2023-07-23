@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import titleSlice from './titleSlice';
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    title: titleSlice.reducer,
+  },
 });
 
 export default store;
