@@ -1,0 +1,21 @@
+.titleBox {
+  background-color: white;
+  border: 1px solid #dadce0;
+  border-top: 10px solid #673ab7;
+  border-radius: 8px;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0 1px 1px 0 rgba(0, 0, 0, 0.141), 0 1px 3px 0 rgba(0, 0, 0, 0.122);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+input {
+  border-bottom: 1px solid #c5c5c5;
+}

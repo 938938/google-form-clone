@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 import { ChangeEvent } from 'react';
 import { setSub, setTitle } from '../store/titleSlice';
+import style from './Title.module.css';
 
 const Title = () => {
   const dispatch = useDispatch();
@@ -19,9 +20,14 @@ const Title = () => {
   };
 
   return (
-    <div>
+    <div className={style.titleBox}>
       <label>
-        <input name='title' value={title} onChange={changeHandler} />
+        <input
+          className={style.title}
+          name='title'
+          value={title}
+          onChange={changeHandler}
+        />
       </label>
       {/* focus 이벤트가 일어났을 때 글자 꾸미는 버튼 표시 */}
       <label>
