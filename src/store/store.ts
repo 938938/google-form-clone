@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import titleSlice from './titleSlice';
+import questionSlice from './questionSlice';
 
 const store = configureStore({
   reducer: {
     title: titleSlice.reducer,
+    question: questionSlice.reducer,
   },
 });
 
