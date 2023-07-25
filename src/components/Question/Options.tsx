@@ -9,13 +9,9 @@ import {
 import { ChangeEvent } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 import style from './Options.module.css';
+import { OptionType } from '../../model/Type';
 
-const Options: React.FC<{
-  idx: number;
-  type: string;
-  options: string[];
-  isEtc: boolean;
-}> = ({ idx, type, options, isEtc }) => {
+const Options: React.FC<OptionType> = ({ idx, type, options, isEtc }) => {
   const dispatch = useDispatch();
   const onAddHandler = () => {
     dispatch(addOptions({ idx }));

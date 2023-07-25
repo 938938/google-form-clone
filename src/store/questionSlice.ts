@@ -1,16 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
-// type Answer = {};
-export type QuestionType = {
-  idx: number;
-  type: string;
-  // 'short' | 'paragraph' | 'multiple' | 'checkboxes' | 'dropdown'
-  title: string;
-  // answer 타입 좀 더 고민하기. 일단 임시로 string.
-  options: string[];
-  isEtc: boolean;
-  isRequired: boolean;
-};
+import { QuestionType } from '../model/Type';
 
 const initialState: QuestionType[] = [
   {

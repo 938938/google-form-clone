@@ -1,4 +1,4 @@
-import { QuestionType } from '../../store/questionSlice';
+import { QuestionType } from '../../model/Type';
 import Container from '../common/Container';
 import PreviewOptions from './PreviewOptions';
 import style from './PreviewQuestion.module.css';

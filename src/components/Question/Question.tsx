@@ -1,6 +1,5 @@
 import { ChangeEvent, useState } from 'react';
 import {
-  QuestionType,
   copy,
   del,
   editRequire,
@@ -20,6 +19,7 @@ import {
   RxTrash,
 } from 'react-icons/rx';
 import Container from '../common/Container';
+import { QuestionType } from '../../model/Type';
 
 const Question: React.FC<QuestionType> = ({
   idx,
@@ -49,6 +49,7 @@ const Question: React.FC<QuestionType> = ({
   const delHandler = () => {
     dispatch(del(idx));
   };
+
   return (
     <Container>
       <div className={style.questionHeader}>

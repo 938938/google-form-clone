@@ -3,8 +3,9 @@ import { RootState } from '../store/store';
 import { ChangeEvent } from 'react';
 import { setSub, setTitle } from '../store/titleSlice';
 import style from './Title.module.css';
+import { PreviewType } from '../model/Type';
 
-const Title: React.FC<{ preview: boolean }> = ({ preview }) => {
+const Title: React.FC<PreviewType> = ({ preview }) => {
   const dispatch = useDispatch();
   const { title, sub } = useSelector((state: RootState) => state.title);
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {

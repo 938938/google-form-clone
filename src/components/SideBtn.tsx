@@ -3,8 +3,9 @@ import style from './SideBtn.module.css';
 import { useDispatch } from 'react-redux';
 import { add } from '../store/questionSlice';
 import { Link } from 'react-router-dom';
+import { PreviewType } from '../model/Type';
 
-const SideBtn: React.FC<{ preview: boolean }> = ({ preview }) => {
+const SideBtn: React.FC<PreviewType> = ({ preview }) => {
   const dispatch = useDispatch();
   const addHandler = () => {
     dispatch(add(1)); // 임의의 변수 전달

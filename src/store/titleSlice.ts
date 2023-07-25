@@ -1,11 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { TitleType } from '../model/Type';
 
-type Title = {
-  title: string;
-  sub: string;
-};
-
-const initialState: Title = {
+const initialState: TitleType = {
   title: '제목 없는 설문지',
   sub: '',
 };

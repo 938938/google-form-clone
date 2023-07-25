@@ -1,12 +1,13 @@
 import style from './PreviewOptions.module.css';
 import DropDown from '../common/DropDown';
+import { OptionType } from '../../model/Type';
 
-const PreviewOptions: React.FC<{
-  idx: number;
-  type: string;
-  options: string[];
-  isEtc: boolean;
-}> = ({ idx, type, options, isEtc }) => {
+const PreviewOptions: React.FC<OptionType> = ({
+  idx,
+  type,
+  options,
+  isEtc,
+}) => {
   switch (type) {
     case 'short':
       return <input placeholder='내 답변' className={style.short} />;
