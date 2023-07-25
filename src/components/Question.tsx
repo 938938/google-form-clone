@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import { QuestionType } from '../store/questionSlice';
+import { ChangeEvent, useState } from 'react';
+import { QuestionType, editTitle } from '../store/questionSlice';
 import style from './Question.module.css';
 import Options from './Options';
+import { useDispatch } from 'react-redux';
 
 const Question: React.FC<QuestionType> = ({
   idx,
@@ -10,11 +11,16 @@ const Question: React.FC<QuestionType> = ({
   options,
   isEtc,
 }) => {
+  const dispatch = useDispatch();
   const [Qtype, setQType] = useState<string>('multiple');
+  const editHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    dispatch(editTitle({ idx, value }));
+  };
   return (
     <form className={style.questionBox}>
       <div className={style.questionHeader}>
-        <input placeholder='질문' />
+        <input placeholder='질문' value={title} onChange={editHandler} />
         <select
           defaultValue='multiple'
           onChange={(e) => setQType(e.target.value)}

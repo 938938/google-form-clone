@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 // type Answer = {};
 export type QuestionType = {
   idx: number;
-  type: 'short' | 'paragraph' | 'multiple' | 'checkboxes' | 'dropdown';
+  type: string;
+  // 'short' | 'paragraph' | 'multiple' | 'checkboxes' | 'dropdown'
   title: string;
   // answer 타입 좀 더 고민하기. 일단 임시로 string.
   options: string[];
@@ -14,7 +15,7 @@ const initialState: QuestionType[] = [
   {
     idx: 0,
     type: 'multiple',
-    title: '질문',
+    title: '',
     options: ['옵션1'],
     isEtc: false,
   },
@@ -29,7 +30,13 @@ const questionSlice = createSlice({
       state = [...state, action.payload];
     },
 
-    // 답변에 적용
+    // 질문 타이틀 적용
+    editTitle: (state, action) => {
+      const { idx, value } = action.payload;
+      state[idx].title = value;
+    },
+
+    // 옵션에 적용
     addOptions: (state, action) => {
       const { idx } = action.payload;
       state[idx].options.push(`옵션 ${state[idx].options.length + 1}`);
@@ -62,6 +69,7 @@ const questionSlice = createSlice({
 export default questionSlice;
 export const {
   add,
+  editTitle,
   addOptions,
   addEtcOption,
   delEtcOption,
