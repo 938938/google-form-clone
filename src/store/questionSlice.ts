@@ -55,6 +55,10 @@ const questionSlice = createSlice({
       }
       state.splice(idx, 1);
     },
+    editRequire: (state, action) => {
+      const idx = action.payload;
+      state[idx].isRequired = !state[idx].isRequired;
+    },
 
     // 질문 타이틀 적용
     editTitle: (state, action) => {
@@ -97,6 +101,7 @@ export const {
   add,
   copy,
   del,
+  editRequire,
   editTitle,
   addOptions,
   addEtcOption,

@@ -1,5 +1,11 @@
 import { ChangeEvent, useState } from 'react';
-import { QuestionType, copy, del, editTitle } from '../store/questionSlice';
+import {
+  QuestionType,
+  copy,
+  del,
+  editRequire,
+  editTitle,
+} from '../store/questionSlice';
 import style from './Question.module.css';
 import Options from './Options';
 import { useDispatch } from 'react-redux';
@@ -19,12 +25,12 @@ const Question: React.FC<QuestionType> = ({
   title,
   options,
   isEtc,
+  isRequired,
 }) => {
   const dispatch = useDispatch();
   const [Qtype, setQType] = useState<string>('multiple');
-  const [isRequired, setIsRequired] = useState<boolean>(false);
   const toggleHandler = () => {
-    setIsRequired((prev) => !prev);
+    dispatch(editRequire(idx));
   };
   const editHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
