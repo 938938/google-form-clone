@@ -20,3 +20,24 @@
   padding: 10px;
   width: 100%;
 }
+
+.addInput {
+  width: 80px;
+}
+
+.addBtn {
+  width: 80px;
+  font-size: 1rem;
+  color: blue;
+}
+
+/* 질문 타입에 따른 옵션 스타일 */
+
+.option {
+  width: 10px;
+  height: 10px;
+}
+
+.dropdownOption {
+  margin-left: 10px;
+}

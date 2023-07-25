@@ -43,6 +43,7 @@ const Options: React.FC<{
         <ul>
           {options.map((ele, idx) => (
             <li key={idx}>
+              <input type='radio' className={style.option} disabled />
               <input value={ele} onChange={(e) => onChangeHandler(e, idx)} />
               <RxCross2
                 className={style.delBtn}
@@ -52,16 +53,25 @@ const Options: React.FC<{
           ))}
           {isEtc && (
             <li className={style.etc}>
+              <input type='radio' className={style.option} disabled />
               <span>기타...</span>
               <RxCross2 className={style.delBtn} onClick={onEtcDeleteHandler} />
             </li>
           )}
           <li>
-            <input value='옵션 추가' onClick={onAddHandler} readOnly />
+            <input type='radio' className={style.option} disabled />
+            <input
+              value='옵션 추가'
+              className={style.addInput}
+              onClick={onAddHandler}
+              readOnly
+            />
             {!isEtc && (
               <>
                 <span>또는</span>
-                <button onClick={onEtcAddHandler}>'기타' 추가</button>
+                <button className={style.addBtn} onClick={onEtcAddHandler}>
+                  '기타' 추가
+                </button>
               </>
             )}
           </li>
@@ -72,6 +82,7 @@ const Options: React.FC<{
         <ul>
           {options.map((ele, idx) => (
             <li key={idx}>
+              <input type='checkbox' className={style.option} disabled />
               <input value={ele} onChange={(e) => onChangeHandler(e, idx)} />
               <RxCross2
                 className={style.delBtn}
@@ -81,16 +92,25 @@ const Options: React.FC<{
           ))}
           {isEtc && (
             <li className={style.etc}>
+              <input type='checkbox' className={style.option} disabled />
               <span>기타...</span>
               <RxCross2 className={style.delBtn} onClick={onEtcDeleteHandler} />
             </li>
           )}
           <li>
-            <input value='옵션 추가' onClick={onAddHandler} readOnly />
+            <input type='checkbox' className={style.option} disabled />
+            <input
+              value='옵션 추가'
+              className={style.addInput}
+              onClick={onAddHandler}
+              readOnly
+            />
             {!isEtc && (
               <>
                 <span>또는</span>
-                <button onClick={onEtcAddHandler}>'기타' 추가</button>
+                <button className={style.addBtn} onClick={onEtcAddHandler}>
+                  '기타' 추가
+                </button>
               </>
             )}
           </li>
@@ -101,6 +121,7 @@ const Options: React.FC<{
         <ol>
           {options.map((ele, idx) => (
             <li key={idx}>
+              <span className={style.dropdownOption}>{idx + 1}.</span>
               <input value={ele} onChange={(e) => onChangeHandler(e, idx)} />
               <RxCross2
                 className={style.delBtn}
@@ -109,7 +130,12 @@ const Options: React.FC<{
             </li>
           ))}
           <li>
-            <input value='옵션 추가' onClick={onAddHandler} readOnly />
+            <input
+              value='옵션 추가'
+              className={style.addInput}
+              onClick={onAddHandler}
+              readOnly
+            />
           </li>
         </ol>
       );
