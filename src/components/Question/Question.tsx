@@ -55,7 +55,6 @@ const Question: React.FC<QuestionType> = ({
         <select defaultValue={type} onChange={editTypeHandler}>
           <option value='short'>단답형</option>
           <option value='paragraph'>장문형</option>
-          <hr />
           <option value='multiple'>객관식 질문</option>
           <option value='checkboxes'>체크박스</option>
           <option value='dropdown'>드롭박스</option>

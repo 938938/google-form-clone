@@ -6,7 +6,6 @@ import { PreviewType } from '../model/Type';
 
 const QuestionList: React.FC<PreviewType> = ({ preview }) => {
   const data = useSelector((state: RootState) => state.question);
-  console.log(data);
   return (
     <div>
       {data.map((ele, idx) =>

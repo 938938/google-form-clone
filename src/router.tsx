@@ -3,6 +3,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Main from './pages/Main';
 import Preview from './pages/Preview';
 import Layout from './pages/Layout';
+import Submit from './pages/Submit';
 
 export const routers: RemixRouter = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ export const routers: RemixRouter = createBrowserRouter([
       {
         path: '/preview',
         element: <Preview />,
+      },
+      {
+        path: '/submit',
+        element: <Submit />,
       },
     ],
   },

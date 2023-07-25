@@ -96,7 +96,6 @@ const questionSlice = createSlice({
     },
     checkBoxSelect: (state, action) => {
       const { idx, value, checked } = action.payload;
-      console.log(idx, value, checked);
       if (checked) {
         state[idx].selected.push(value);
       } else {
