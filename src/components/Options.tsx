@@ -46,7 +46,7 @@ const Options: React.FC<{
               <input type='radio' className={style.option} disabled />
               <input value={ele} onChange={(e) => onChangeHandler(e, idx)} />
               <RxCross2
-                className={style.delBtn}
+                className='iconBtn'
                 onClick={() => onDeleteHandler(idx)}
               />
             </li>
@@ -55,7 +55,7 @@ const Options: React.FC<{
             <li className={style.etc}>
               <input type='radio' className={style.option} disabled />
               <span>기타...</span>
-              <RxCross2 className={style.delBtn} onClick={onEtcDeleteHandler} />
+              <RxCross2 className='iconBtn' onClick={onEtcDeleteHandler} />
             </li>
           )}
           <li>
@@ -85,7 +85,7 @@ const Options: React.FC<{
               <input type='checkbox' className={style.option} disabled />
               <input value={ele} onChange={(e) => onChangeHandler(e, idx)} />
               <RxCross2
-                className={style.delBtn}
+                className='iconBtn'
                 onClick={() => onDeleteHandler(idx)}
               />
             </li>
@@ -94,7 +94,7 @@ const Options: React.FC<{
             <li className={style.etc}>
               <input type='checkbox' className={style.option} disabled />
               <span>기타...</span>
-              <RxCross2 className={style.delBtn} onClick={onEtcDeleteHandler} />
+              <RxCross2 className='iconBtn' onClick={onEtcDeleteHandler} />
             </li>
           )}
           <li>
@@ -124,7 +124,7 @@ const Options: React.FC<{
               <span className={style.dropdownOption}>{idx + 1}.</span>
               <input value={ele} onChange={(e) => onChangeHandler(e, idx)} />
               <RxCross2
-                className={style.delBtn}
+                className='iconBtn'
                 onClick={() => onDeleteHandler(idx)}
               />
             </li>

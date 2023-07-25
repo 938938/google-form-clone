@@ -3,6 +3,15 @@ import { QuestionType, editTitle } from '../store/questionSlice';
 import style from './Question.module.css';
 import Options from './Options';
 import { useDispatch } from 'react-redux';
+import {
+  RxButton,
+  RxTextAlignLeft,
+  RxDisc,
+  RxCheckbox,
+  RxCheckCircled,
+  RxCopy,
+  RxTrash,
+} from 'react-icons/rx';
 
 const Question: React.FC<QuestionType> = ({
   idx,
@@ -13,6 +22,10 @@ const Question: React.FC<QuestionType> = ({
 }) => {
   const dispatch = useDispatch();
   const [Qtype, setQType] = useState<string>('multiple');
+  const [isOn, setisOn] = useState<boolean>(false);
+  const toggleHandler = () => {
+    setisOn((prev) => !prev);
+  };
   const editHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     dispatch(editTitle({ idx, value }));
@@ -25,21 +38,43 @@ const Question: React.FC<QuestionType> = ({
           defaultValue='multiple'
           onChange={(e) => setQType(e.target.value)}
         >
-          <option value='short'>단답형</option>
-          <option value='paragraph'>장문형</option>
+          <option value='short'>
+            <RxButton />
+            단답형
+          </option>
+          <option value='paragraph'>
+            <RxTextAlignLeft />
+            장문형
+          </option>
           <hr />
-          <option value='multiple'>객관식 질문</option>
-          <option value='checkboxes'>체크박스</option>
-          <option value='dropdown'>드롭박스</option>
+          <option value='multiple'>
+            <RxDisc />
+            객관식 질문
+          </option>
+          <option value='checkboxes'>
+            <RxCheckbox />
+            체크박스
+          </option>
+          <option value='dropdown'>
+            <RxCheckCircled />
+            드롭박스
+          </option>
         </select>
       </div>
       <div className={style.optionsBox}>
         <Options idx={idx} type={Qtype} options={options} isEtc={isEtc} />
       </div>
       <div className={style.btns}>
-        <button>복사</button>
-        <button>삭제</button>
-        <button>토글</button>
+        <button>
+          <RxCopy className='iconBtn' />
+        </button>
+        <button>
+          <RxTrash className='iconBtn' />
+        </button>
+        <p>| 필수</p>
+        <div className={style.toggle} onClick={toggleHandler}>
+          <div className={`${style.toggleCircle} ${isOn && style.toggleOn}`} />
+        </div>
       </div>
     </form>
   );

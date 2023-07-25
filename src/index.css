@@ -37,3 +37,17 @@ button {
   background-color: transparent;
   cursor: pointer;
 }
+
+.iconBtn {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  padding: 3px;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.iconBtn:hover {
+  background-color: #e5e5e5;
+  transition: all 0.2s;
+}

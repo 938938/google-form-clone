@@ -10,7 +10,7 @@ const AddQuestion = () => {
   };
   return (
     <button className={style.addQuestion} onClick={addHandler}>
-      <RxPlusCircled />
+      <RxPlusCircled className='iconBtn' />
     </button>
   );
 };

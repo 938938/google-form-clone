@@ -2,20 +2,6 @@
   display: flex;
 }
 
-.delBtn {
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  padding: 3px;
-  border-radius: 50%;
-  transition: all 0.2s;
-}
-
-.delBtn:hover {
-  background-color: #e5e5e5;
-  transition: all 0.2s;
-}
-
 .etc span {
   padding: 10px;
   width: 100%;

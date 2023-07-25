@@ -58,8 +58,43 @@
 .btns {
   display: flex;
   justify-content: end;
+  align-items: center;
 }
 
 .btns * {
   margin: 0 5px;
+}
+
+.copyBtn {
+  width: 20px;
+  height: 20px;
+}
+
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 18px;
+  border-radius: 30px;
+  background-color: #8b8b8b;
+  transition: 0.5s;
+}
+
+.toggleCircle {
+  position: absolute;
+  top: -3px;
+  left: -2px;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  transition: 0.5s;
+  margin: 0;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.3),
+    0 1px 1px 0 rgba(0, 0, 0, 0.141), 0 1px 3px 0 rgba(0, 0, 0, 0.122);
+}
+
+.toggleOn {
+  left: 20px;
+  transition: 0.5s;
+  background-color: #673ab7;
 }
