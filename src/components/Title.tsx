@@ -4,7 +4,7 @@ import { ChangeEvent } from 'react';
 import { setSub, setTitle } from '../store/titleSlice';
 import style from './Title.module.css';
 
-const Title = () => {
+const Title: React.FC<{ preview: boolean }> = ({ preview }) => {
   const dispatch = useDispatch();
   const { title, sub } = useSelector((state: RootState) => state.title);
   const changeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -22,21 +22,29 @@ const Title = () => {
   return (
     <div className={style.titleBox}>
       <label>
-        <input
-          className={style.title}
-          name='title'
-          value={title}
-          onChange={changeHandler}
-        />
+        {preview ? (
+          <p className={style.title}>{title}</p>
+        ) : (
+          <input
+            className={style.title}
+            name='title'
+            value={title}
+            onChange={changeHandler}
+          />
+        )}
       </label>
       {/* focus 이벤트가 일어났을 때 글자 꾸미는 버튼 표시 */}
       <label>
-        <input
-          name='sub'
-          value={sub}
-          placeholder='설문지 설명'
-          onChange={changeHandler}
-        />
+        {preview ? (
+          <p>{sub}</p>
+        ) : (
+          <input
+            name='sub'
+            value={sub}
+            placeholder='설문지 설명'
+            onChange={changeHandler}
+          />
+        )}
       </label>
     </div>
   );

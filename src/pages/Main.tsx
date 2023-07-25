@@ -1,13 +1,13 @@
-import AddQuestion from '../components/AddQuestion';
-import QuestionList from '../components/Question/QuestionList';
+import QuestionList from '../components/QuestionList';
 import Title from '../components/Title';
+import SideBtn from '../components/SideBtn';
 
 const Main = () => {
   return (
     <div>
-      <Title />
-      <QuestionList />
-      <AddQuestion />
+      <Title preview={false} />
+      <QuestionList preview={false} />
+      <SideBtn preview={false} />
     </div>
   );
 };
