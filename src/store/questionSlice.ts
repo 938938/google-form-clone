@@ -39,6 +39,10 @@ const questionSlice = createSlice({
       };
       state.push(defaultValue);
     },
+    editType: (state, action) => {
+      const { idx, type } = action.payload;
+      state[idx].type = type;
+    },
     copy: (state, action) => {
       const idx = action.payload;
       const copyQuestion = {
@@ -99,6 +103,7 @@ const questionSlice = createSlice({
 export default questionSlice;
 export const {
   add,
+  editType,
   copy,
   del,
   editRequire,

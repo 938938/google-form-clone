@@ -5,6 +5,7 @@ import {
   del,
   editRequire,
   editTitle,
+  editType,
 } from '../../store/questionSlice';
 import style from './Question.module.css';
 import Options from './Options';
@@ -18,6 +19,7 @@ import {
   RxCopy,
   RxTrash,
 } from 'react-icons/rx';
+import Container from '../common/Container';
 
 const Question: React.FC<QuestionType> = ({
   idx,
@@ -28,13 +30,18 @@ const Question: React.FC<QuestionType> = ({
   isRequired,
 }) => {
   const dispatch = useDispatch();
-  const [Qtype, setQType] = useState<string>('multiple');
+  const [Qtype, setQType] = useState<string>(type);
   const toggleHandler = () => {
     dispatch(editRequire(idx));
   };
   const editHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     dispatch(editTitle({ idx, value }));
+  };
+  const editTypeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    const { value } = e.target;
+    setQType(value);
+    dispatch(editType({ idx, value }));
   };
   const copyHandler = () => {
     dispatch(copy(idx));
@@ -43,13 +50,10 @@ const Question: React.FC<QuestionType> = ({
     dispatch(del(idx));
   };
   return (
-    <form className={style.questionBox}>
+    <Container>
       <div className={style.questionHeader}>
         <input placeholder='질문' value={title} onChange={editHandler} />
-        <select
-          defaultValue='multiple'
-          onChange={(e) => setQType(e.target.value)}
-        >
+        <select defaultValue='multiple' onChange={editTypeHandler}>
           <option value='short'>
             <RxButton />
             단답형
@@ -90,7 +94,7 @@ const Question: React.FC<QuestionType> = ({
           />
         </div>
       </div>
-    </form>
+    </Container>
   );
 };
 
