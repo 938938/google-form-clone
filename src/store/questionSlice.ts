@@ -38,15 +38,33 @@ const questionSlice = createSlice({
       const { idx } = action.payload;
       state[idx].isEtc = true;
     },
+    delEtcOption: (state, action) => {
+      const { idx } = action.payload;
+      state[idx].isEtc = false;
+    },
     editOption: (state, action) => {
       // Qidx : 질문의 인덱스
       // Oidx : 옵션의 인덱스
       const { Qidx, Oidx, value } = action.payload;
       state[Qidx].options[Oidx] = value;
     },
+    delOption: (state, action) => {
+      const { Qidx, Oidx } = action.payload;
+      // 남은 옵션이 하나밖에 없으면 삭제를 실행하지 않고 return
+      if (state[Qidx].options.length <= 1) {
+        return;
+      }
+      state[Qidx].options.splice(Oidx, 1);
+    },
   },
 });
 
 export default questionSlice;
-export const { add, addOptions, addEtcOption, editOption } =
-  questionSlice.actions;
+export const {
+  add,
+  addOptions,
+  addEtcOption,
+  delEtcOption,
+  editOption,
+  delOption,
+} = questionSlice.actions;

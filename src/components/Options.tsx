@@ -1,6 +1,14 @@
 import { useDispatch } from 'react-redux';
-import { addEtcOption, addOptions, editOption } from '../store/questionSlice';
+import {
+  addEtcOption,
+  addOptions,
+  delEtcOption,
+  delOption,
+  editOption,
+} from '../store/questionSlice';
 import { ChangeEvent } from 'react';
+import { RxCross2 } from 'react-icons/rx';
+import style from './Options.module.css';
 
 const Options: React.FC<{
   idx: number;
@@ -19,6 +27,12 @@ const Options: React.FC<{
     const { value } = e.target;
     dispatch(editOption({ Qidx: idx, value, Oidx }));
   };
+  const onDeleteHandler = (Oidx: number) => {
+    dispatch(delOption({ Qidx: idx, Oidx }));
+  };
+  const onEtcDeleteHandler = () => {
+    dispatch(delEtcOption({ idx }));
+  };
   switch (type) {
     case 'short':
       return <p>단답형 텍스트</p>;
@@ -30,9 +44,18 @@ const Options: React.FC<{
           {options.map((ele, idx) => (
             <li key={idx}>
               <input value={ele} onChange={(e) => onChangeHandler(e, idx)} />
+              <RxCross2
+                className={style.delBtn}
+                onClick={() => onDeleteHandler(idx)}
+              />
             </li>
           ))}
-          {isEtc && <p>기타...</p>}
+          {isEtc && (
+            <li className={style.etc}>
+              <span>기타...</span>
+              <RxCross2 className={style.delBtn} onClick={onEtcDeleteHandler} />
+            </li>
+          )}
           <li>
             <input value='옵션 추가' onClick={onAddHandler} readOnly />
             {!isEtc && (
@@ -50,9 +73,18 @@ const Options: React.FC<{
           {options.map((ele, idx) => (
             <li key={idx}>
               <input value={ele} onChange={(e) => onChangeHandler(e, idx)} />
+              <RxCross2
+                className={style.delBtn}
+                onClick={() => onDeleteHandler(idx)}
+              />
             </li>
           ))}
-          {isEtc && <p>기타...</p>}
+          {isEtc && (
+            <li className={style.etc}>
+              <span>기타...</span>
+              <RxCross2 className={style.delBtn} onClick={onEtcDeleteHandler} />
+            </li>
+          )}
           <li>
             <input value='옵션 추가' onClick={onAddHandler} readOnly />
             {!isEtc && (
@@ -70,6 +102,10 @@ const Options: React.FC<{
           {options.map((ele, idx) => (
             <li key={idx}>
               <input value={ele} onChange={(e) => onChangeHandler(e, idx)} />
+              <RxCross2
+                className={style.delBtn}
+                onClick={() => onDeleteHandler(idx)}
+              />
             </li>
           ))}
           <li>
