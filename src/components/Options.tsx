@@ -1,7 +1,10 @@
-const Answer: React.FC<{ type: string; answer: string[] }> = ({
+import { useDispatch } from 'react-redux';
+
+const Options: React.FC<{ type: string; options: string[] }> = ({
   type,
-  answer,
+  options,
 }) => {
+  const dispatch = useDispatch();
   switch (type) {
     case 'short':
       return <p>단답형 텍스트</p>;
@@ -10,7 +13,7 @@ const Answer: React.FC<{ type: string; answer: string[] }> = ({
     case 'multiple':
       return (
         <ul>
-          {answer.map((ele, idx) => (
+          {options.map((ele, idx) => (
             <li key={idx}>
               <input value={ele} />
             </li>
@@ -25,7 +28,7 @@ const Answer: React.FC<{ type: string; answer: string[] }> = ({
     case 'checkboxes':
       return (
         <ul>
-          {answer.map((ele, idx) => (
+          {options.map((ele, idx) => (
             <li key={idx}>
               <input value={ele} />
             </li>
@@ -40,7 +43,7 @@ const Answer: React.FC<{ type: string; answer: string[] }> = ({
     case 'dropdown':
       return (
         <ol>
-          {answer.map((ele, idx) => (
+          {options.map((ele, idx) => (
             <li key={idx}>
               <input value={ele} />
             </li>
@@ -55,4 +58,4 @@ const Answer: React.FC<{ type: string; answer: string[] }> = ({
   }
 };
 
-export default Answer;
+export default Options;

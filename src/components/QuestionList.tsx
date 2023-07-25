@@ -12,7 +12,7 @@ const QuestionList = () => {
           key={idx}
           type={ele.type}
           title={ele.title}
-          answer={ele.answer}
+          options={ele.options}
         />
       ))}
     </div>
