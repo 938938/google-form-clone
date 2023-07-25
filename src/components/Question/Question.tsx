@@ -53,7 +53,12 @@ const Question: React.FC<QuestionType> = ({
   return (
     <Container>
       <div className={style.questionHeader}>
-        <input placeholder='질문' value={title} onChange={editHandler} />
+        <input
+          placeholder='질문'
+          value={title}
+          onChange={editHandler}
+          required
+        />
         <select defaultValue={type} onChange={editTypeHandler}>
           <option value='short'>
             <RxButton />
@@ -79,7 +84,13 @@ const Question: React.FC<QuestionType> = ({
         </select>
       </div>
       <div className={style.optionsBox}>
-        <Options idx={idx} type={Qtype} options={options} isEtc={isEtc} />
+        <Options
+          idx={idx}
+          type={Qtype}
+          options={options}
+          isEtc={isEtc}
+          isRequired={isRequired}
+        />
       </div>
       <div className={style.btns}>
         <button onClick={copyHandler} type='button'>

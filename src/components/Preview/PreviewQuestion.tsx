@@ -14,10 +14,18 @@ const PreviewQuestion: React.FC<QuestionType> = ({
   return (
     <Container>
       <div className={style.previewHeader}>
-        <p>{title}</p>
+        <p>
+          {isRequired && <span className={style.required}>*</span>} {title}
+        </p>
       </div>
       <div className={style.optionsBox}>
-        <PreviewOptions idx={idx} type={type} options={options} isEtc={isEtc} />
+        <PreviewOptions
+          idx={idx}
+          type={type}
+          options={options}
+          isEtc={isEtc}
+          isRequired={isRequired}
+        />
       </div>
     </Container>
   );

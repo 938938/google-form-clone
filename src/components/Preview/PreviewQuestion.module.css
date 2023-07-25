@@ -2,6 +2,10 @@
   height: 40px;
 }
 
+.required {
+  color: red;
+}
+
 .optionsBox {
   width: 100%;
 }

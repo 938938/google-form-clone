@@ -1,0 +1,26 @@
+.btns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.submitBtn {
+  background-color: #673ab7;
+  color: white;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.submitBtn:hover {
+  background-color: #7a4fc5;
+}
+
+.delBtn {
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.delBtn:hover {
+  background-color: #e5e5e5;
+}

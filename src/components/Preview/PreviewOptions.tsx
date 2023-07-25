@@ -7,18 +7,36 @@ const PreviewOptions: React.FC<OptionType> = ({
   type,
   options,
   isEtc,
+  isRequired,
 }) => {
   switch (type) {
     case 'short':
-      return <input placeholder='내 답변' className={style.short} />;
+      return (
+        <input
+          placeholder='내 답변'
+          className={style.short}
+          required={isRequired}
+        />
+      );
     case 'paragraph':
-      return <input placeholder='내 답변' className={style.paragraph} />;
+      return (
+        <input
+          placeholder='내 답변'
+          className={style.paragraph}
+          required={isRequired}
+        />
+      );
     case 'multiple':
       return (
         <ul>
           {options.map((ele, idx) => (
             <li key={idx}>
-              <input type='radio' className={style.option} name='radio' />
+              <input
+                type='radio'
+                className={style.option}
+                name='radio'
+                required={isRequired}
+              />
               <p>{ele}</p>
             </li>
           ))}
@@ -35,13 +53,13 @@ const PreviewOptions: React.FC<OptionType> = ({
         <ul>
           {options.map((ele, idx) => (
             <li key={idx}>
-              <input type='checkbox' className={style.option} />
+              <input type='checkbox' name='checkbox' className={style.option} />
               <p>{ele}</p>
             </li>
           ))}
           {isEtc && (
             <li className={style.etc}>
-              <input type='checkbox' className={style.option} />
+              <input type='checkbox' name='checkbox' className={style.option} />
               <span>기타...</span>
             </li>
           )}

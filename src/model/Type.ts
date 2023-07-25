@@ -19,6 +19,7 @@ export type OptionType = {
   type: string;
   options: string[];
   isEtc: boolean;
+  isRequired: boolean;
 };
 
 export type PreviewType = {

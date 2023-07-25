@@ -48,6 +48,11 @@ const Title: React.FC<PreviewType> = ({ preview }) => {
           />
         )}
       </label>
+      {preview && (
+        <p className={style.required}>
+          <span>*</span> 표시는 필수 질문입니다.
+        </p>
+      )}
       <SideBtn preview={preview} />
     </div>
   );

@@ -19,3 +19,11 @@
 .titleBox input {
   border-bottom: 1px solid #c5c5c5;
 }
+
+.required {
+  font-size: 0.8rem;
+}
+
+.required span {
+  color: red;
+}
