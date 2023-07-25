@@ -3,7 +3,13 @@ import { QuestionType } from '../store/questionSlice';
 import style from './Question.module.css';
 import Options from './Options';
 
-const Question: React.FC<QuestionType> = ({ type, title, options }) => {
+const Question: React.FC<QuestionType> = ({
+  idx,
+  type,
+  title,
+  options,
+  isEtc,
+}) => {
   const [Qtype, setQType] = useState<string>('multiple');
   return (
     <form className={style.questionBox}>
@@ -22,7 +28,7 @@ const Question: React.FC<QuestionType> = ({ type, title, options }) => {
         </select>
       </div>
       <div className={style.optionsBox}>
-        <Options type={Qtype} options={options} />
+        <Options idx={idx} type={Qtype} options={options} isEtc={isEtc} />
       </div>
       <div className={style.btns}>
         <button>복사</button>

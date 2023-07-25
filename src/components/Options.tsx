@@ -1,10 +1,19 @@
 import { useDispatch } from 'react-redux';
+import { addEtcOption, addOptions } from '../store/questionSlice';
 
-const Options: React.FC<{ type: string; options: string[] }> = ({
-  type,
-  options,
-}) => {
+const Options: React.FC<{
+  idx: number;
+  type: string;
+  options: string[];
+  isEtc: boolean;
+}> = ({ idx, type, options, isEtc }) => {
   const dispatch = useDispatch();
+  const onAddHandler = () => {
+    dispatch(addOptions({ idx }));
+  };
+  const onEtcAddHandler = () => {
+    dispatch(addEtcOption({ idx }));
+  };
   switch (type) {
     case 'short':
       return <p>단답형 텍스트</p>;
@@ -18,10 +27,15 @@ const Options: React.FC<{ type: string; options: string[] }> = ({
               <input value={ele} />
             </li>
           ))}
+          {isEtc && <p>기타...</p>}
           <li>
-            <input value='옵션 추가' />
-            <span>또는</span>
-            <button>'기타' 추가</button>
+            <input value='옵션 추가' onClick={onAddHandler} />
+            {!isEtc && (
+              <>
+                <span>또는</span>
+                <button onClick={onEtcAddHandler}>'기타' 추가</button>
+              </>
+            )}
           </li>
         </ul>
       );
@@ -33,10 +47,15 @@ const Options: React.FC<{ type: string; options: string[] }> = ({
               <input value={ele} />
             </li>
           ))}
+          {isEtc && <p>기타...</p>}
           <li>
-            <input value='옵션 추가' />
-            <span>또는</span>
-            <button>'기타' 추가</button>
+            <input value='옵션 추가' onClick={onAddHandler} />
+            {!isEtc && (
+              <>
+                <span>또는</span>
+                <button onClick={onEtcAddHandler}>'기타' 추가</button>
+              </>
+            )}
           </li>
         </ul>
       );
@@ -49,7 +68,7 @@ const Options: React.FC<{ type: string; options: string[] }> = ({
             </li>
           ))}
           <li>
-            <input value='옵션 추가' />
+            <input value='옵션 추가' onClick={onAddHandler} />
           </li>
         </ol>
       );

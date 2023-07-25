@@ -10,9 +10,11 @@ const QuestionList = () => {
       {data.map((ele, idx) => (
         <Question
           key={idx}
+          idx={idx}
           type={ele.type}
           title={ele.title}
           options={ele.options}
+          isEtc={ele.isEtc}
         />
       ))}
     </div>
