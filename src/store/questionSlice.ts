@@ -9,6 +9,7 @@ export type QuestionType = {
   // answer 타입 좀 더 고민하기. 일단 임시로 string.
   options: string[];
   isEtc: boolean;
+  isRequired: boolean;
 };
 
 const initialState: QuestionType[] = [
@@ -18,6 +19,7 @@ const initialState: QuestionType[] = [
     title: '',
     options: ['옵션1'],
     isEtc: false,
+    isRequired: false,
   },
 ];
 
@@ -33,8 +35,17 @@ const questionSlice = createSlice({
         title: '',
         options: ['옵션1'],
         isEtc: false,
+        isRequired: false,
       };
       state.push(defaultValue);
+    },
+    copy: (state, action) => {
+      const idx = action.payload;
+      const copyQuestion = {
+        ...state[idx],
+        idx: idx + 1,
+      };
+      state.splice(idx + 1, 0, copyQuestion);
     },
 
     // 질문 타이틀 적용
@@ -76,6 +87,7 @@ const questionSlice = createSlice({
 export default questionSlice;
 export const {
   add,
+  copy,
   editTitle,
   addOptions,
   addEtcOption,

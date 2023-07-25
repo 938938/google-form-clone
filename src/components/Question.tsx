@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { QuestionType, editTitle } from '../store/questionSlice';
+import { QuestionType, copy, editTitle } from '../store/questionSlice';
 import style from './Question.module.css';
 import Options from './Options';
 import { useDispatch } from 'react-redux';
@@ -22,13 +22,16 @@ const Question: React.FC<QuestionType> = ({
 }) => {
   const dispatch = useDispatch();
   const [Qtype, setQType] = useState<string>('multiple');
-  const [isOn, setisOn] = useState<boolean>(false);
+  const [isRequired, setIsRequired] = useState<boolean>(false);
   const toggleHandler = () => {
-    setisOn((prev) => !prev);
+    setIsRequired((prev) => !prev);
   };
   const editHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     dispatch(editTitle({ idx, value }));
+  };
+  const copyHandler = () => {
+    dispatch(copy(idx));
   };
   return (
     <form className={style.questionBox}>
@@ -65,15 +68,17 @@ const Question: React.FC<QuestionType> = ({
         <Options idx={idx} type={Qtype} options={options} isEtc={isEtc} />
       </div>
       <div className={style.btns}>
-        <button>
+        <button onClick={copyHandler} type='button'>
           <RxCopy className='iconBtn' />
         </button>
         <button>
-          <RxTrash className='iconBtn' />
+          <RxTrash className='iconBtn' type='button' />
         </button>
         <p>| 필수</p>
         <div className={style.toggle} onClick={toggleHandler}>
-          <div className={`${style.toggleCircle} ${isOn && style.toggleOn}`} />
+          <div
+            className={`${style.toggleCircle} ${isRequired && style.toggleOn}`}
+          />
         </div>
       </div>
     </form>

@@ -14,6 +14,7 @@ const QuestionList = () => {
           title={ele.title}
           options={ele.options}
           isEtc={ele.isEtc}
+          isRequired={ele.isRequired}
         />
       ))}
     </div>
