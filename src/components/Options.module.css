@@ -12,7 +12,7 @@
 }
 
 .delBtn:hover {
-  background-color: lightgray;
+  background-color: #e5e5e5;
   transition: all 0.2s;
 }
 

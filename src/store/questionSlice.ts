@@ -27,7 +27,14 @@ const questionSlice = createSlice({
   reducers: {
     // 질문 전체에 적용
     add: (state, action) => {
-      state = [...state, action.payload];
+      const defaultValue = {
+        idx: state.length,
+        type: 'multiple',
+        title: '',
+        options: ['옵션1'],
+        isEtc: false,
+      };
+      state.push(defaultValue);
     },
 
     // 질문 타이틀 적용

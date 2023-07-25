@@ -1,0 +1,24 @@
+.addQuestion {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+    0 1px 1px 0 rgba(0, 0, 0, 0.141), 0 1px 3px 0 rgba(0, 0, 0, 0.122);
+}
+
+.addQuestion svg {
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+  transition: all 0.2s;
+  border-radius: 50%;
+}
+
+.addQuestion:hover svg {
+  background-color: #e5e5e5;
+  transition: all 0.2s;
+}
