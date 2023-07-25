@@ -38,8 +38,15 @@ const questionSlice = createSlice({
       const { idx } = action.payload;
       state[idx].isEtc = true;
     },
+    editOption: (state, action) => {
+      // Qidx : 질문의 인덱스
+      // Oidx : 옵션의 인덱스
+      const { Qidx, Oidx, value } = action.payload;
+      state[Qidx].options[Oidx] = value;
+    },
   },
 });
 
 export default questionSlice;
-export const { add, addOptions, addEtcOption } = questionSlice.actions;
+export const { add, addOptions, addEtcOption, editOption } =
+  questionSlice.actions;

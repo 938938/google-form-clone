@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
-import { addEtcOption, addOptions } from '../store/questionSlice';
+import { addEtcOption, addOptions, editOption } from '../store/questionSlice';
+import { ChangeEvent } from 'react';
 
 const Options: React.FC<{
   idx: number;
@@ -14,6 +15,10 @@ const Options: React.FC<{
   const onEtcAddHandler = () => {
     dispatch(addEtcOption({ idx }));
   };
+  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>, Oidx: number) => {
+    const { value } = e.target;
+    dispatch(editOption({ Qidx: idx, value, Oidx }));
+  };
   switch (type) {
     case 'short':
       return <p>단답형 텍스트</p>;
@@ -24,12 +29,12 @@ const Options: React.FC<{
         <ul>
           {options.map((ele, idx) => (
             <li key={idx}>
-              <input value={ele} />
+              <input value={ele} onChange={(e) => onChangeHandler(e, idx)} />
             </li>
           ))}
           {isEtc && <p>기타...</p>}
           <li>
-            <input value='옵션 추가' onClick={onAddHandler} />
+            <input value='옵션 추가' onClick={onAddHandler} readOnly />
             {!isEtc && (
               <>
                 <span>또는</span>
@@ -44,12 +49,12 @@ const Options: React.FC<{
         <ul>
           {options.map((ele, idx) => (
             <li key={idx}>
-              <input value={ele} />
+              <input value={ele} onChange={(e) => onChangeHandler(e, idx)} />
             </li>
           ))}
           {isEtc && <p>기타...</p>}
           <li>
-            <input value='옵션 추가' onClick={onAddHandler} />
+            <input value='옵션 추가' onClick={onAddHandler} readOnly />
             {!isEtc && (
               <>
                 <span>또는</span>
@@ -64,11 +69,11 @@ const Options: React.FC<{
         <ol>
           {options.map((ele, idx) => (
             <li key={idx}>
-              <input value={ele} />
+              <input value={ele} onChange={(e) => onChangeHandler(e, idx)} />
             </li>
           ))}
           <li>
-            <input value='옵션 추가' onClick={onAddHandler} />
+            <input value='옵션 추가' onClick={onAddHandler} readOnly />
           </li>
         </ol>
       );
