@@ -53,7 +53,7 @@ const Question: React.FC<QuestionType> = ({
     <Container>
       <div className={style.questionHeader}>
         <input placeholder='질문' value={title} onChange={editHandler} />
-        <select defaultValue='multiple' onChange={editTypeHandler}>
+        <select defaultValue={type} onChange={editTypeHandler}>
           <option value='short'>
             <RxButton />
             단답형
