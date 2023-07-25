@@ -13,7 +13,7 @@ const PreviewQuestion: React.FC<QuestionType> = ({
 }) => {
   return (
     <Container>
-      <div className={style.questionHeader}>
+      <div className={style.previewHeader}>
         <p>{title}</p>
       </div>
       <div className={style.optionsBox}>

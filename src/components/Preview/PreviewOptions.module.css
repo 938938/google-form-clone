@@ -1,0 +1,19 @@
+.option {
+  width: 10px;
+  height: 10px;
+  margin-right: 10px;
+}
+
+.dropdownOption {
+  margin-right: 10px;
+}
+
+.short {
+  width: 300px;
+  border-bottom: 1px solid #d1d1d1;
+}
+
+.paragraph {
+  border-bottom: 1px solid #d1d1d1;
+}
+

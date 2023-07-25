@@ -1,12 +1,56 @@
+import style from './PreviewOptions.module.css';
+import DropDown from '../common/DropDown';
+
 const PreviewOptions: React.FC<{
   idx: number;
   type: string;
   options: string[];
   isEtc: boolean;
 }> = ({ idx, type, options, isEtc }) => {
-  return(
-    <div>PrieviewOptions</div>
-  )
+  switch (type) {
+    case 'short':
+      return <input placeholder='내 답변' className={style.short} />;
+    case 'paragraph':
+      return <input placeholder='내 답변' className={style.paragraph} />;
+    case 'multiple':
+      return (
+        <ul>
+          {options.map((ele, idx) => (
+            <li key={idx}>
+              <input type='radio' className={style.option} name='radio' />
+              <p>{ele}</p>
+            </li>
+          ))}
+          {isEtc && (
+            <li className={style.etc}>
+              <input type='radio' className={style.option} name='radio' />
+              <span>기타...</span>
+            </li>
+          )}
+        </ul>
+      );
+    case 'checkboxes':
+      return (
+        <ul>
+          {options.map((ele, idx) => (
+            <li key={idx}>
+              <input type='checkbox' className={style.option} />
+              <p>{ele}</p>
+            </li>
+          ))}
+          {isEtc && (
+            <li className={style.etc}>
+              <input type='checkbox' className={style.option} />
+              <span>기타...</span>
+            </li>
+          )}
+        </ul>
+      );
+    case 'dropdown':
+      return <DropDown defaultValue={options[0]} values={options} />;
+    default:
+      return <></>;
+  }
 };
 
 export default PreviewOptions;

@@ -1,0 +1,25 @@
+.previewHeader {
+  height: 40px;
+}
+
+.optionsBox {
+  width: 100%;
+}
+
+.optionsBox p {
+  height: 40px;
+  line-height: 40px;
+  font-size: 0.9rem;
+  border-bottom: 1px dashed #c5c5c5;
+  color: #c5c5c5;
+}
+
+.optionsBox input {
+  height: 40px;
+  font-size: 1rem;
+}
+
+.optionsBox li {
+  display: flex;
+  align-items: center;
+}
