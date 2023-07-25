@@ -40,8 +40,8 @@ const questionSlice = createSlice({
       state.push(defaultValue);
     },
     editType: (state, action) => {
-      const { idx, type } = action.payload;
-      state[idx].type = type;
+      const { idx, value } = action.payload;
+      state[idx].type = value;
     },
     copy: (state, action) => {
       const idx = action.payload;
