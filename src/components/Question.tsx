@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from 'react';
-import { QuestionType, copy, editTitle } from '../store/questionSlice';
+import { QuestionType, copy, del, editTitle } from '../store/questionSlice';
 import style from './Question.module.css';
 import Options from './Options';
 import { useDispatch } from 'react-redux';
@@ -32,6 +32,9 @@ const Question: React.FC<QuestionType> = ({
   };
   const copyHandler = () => {
     dispatch(copy(idx));
+  };
+  const delHandler = () => {
+    dispatch(del(idx));
   };
   return (
     <form className={style.questionBox}>
@@ -71,8 +74,8 @@ const Question: React.FC<QuestionType> = ({
         <button onClick={copyHandler} type='button'>
           <RxCopy className='iconBtn' />
         </button>
-        <button>
-          <RxTrash className='iconBtn' type='button' />
+        <button onClick={delHandler} type='button'>
+          <RxTrash className='iconBtn' />
         </button>
         <p>| 필수</p>
         <div className={style.toggle} onClick={toggleHandler}>

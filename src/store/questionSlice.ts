@@ -47,6 +47,14 @@ const questionSlice = createSlice({
       };
       state.splice(idx + 1, 0, copyQuestion);
     },
+    del: (state, action) => {
+      const idx = action.payload;
+      // 남은 질문이 하나밖에 없으면 삭제를 실행하지 않고 return
+      if (state.length <= 1) {
+        return;
+      }
+      state.splice(idx, 1);
+    },
 
     // 질문 타이틀 적용
     editTitle: (state, action) => {
@@ -88,6 +96,7 @@ export default questionSlice;
 export const {
   add,
   copy,
+  del,
   editTitle,
   addOptions,
   addEtcOption,
