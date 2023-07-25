@@ -55,6 +55,7 @@ const PreviewOptions: React.FC<OptionType> = ({
                 required={isRequired}
                 onChange={selectHandler}
                 value={ele}
+                checked={selected.includes(ele)}
               />
               <p>{ele}</p>
             </li>
@@ -67,6 +68,7 @@ const PreviewOptions: React.FC<OptionType> = ({
                 name='radio'
                 onChange={selectHandler}
                 value='기타'
+                checked={selected.includes('기타')}
               />
               <span>기타...</span>
             </li>
@@ -84,6 +86,7 @@ const PreviewOptions: React.FC<OptionType> = ({
                 className={style.option}
                 onChange={selectCheckBoxHandler}
                 value={ele}
+                checked={selected.includes(ele)}
               />
               <p>{ele}</p>
             </li>
@@ -96,6 +99,7 @@ const PreviewOptions: React.FC<OptionType> = ({
                 className={style.option}
                 onChange={selectCheckBoxHandler}
                 value='기타'
+                checked={selected.includes('기타')}
               />
               <span>기타...</span>
             </li>

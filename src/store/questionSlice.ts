@@ -103,6 +103,9 @@ const questionSlice = createSlice({
         state[idx].selected.splice(optionIdx, 1);
       }
     },
+    reset: (state, action) => {
+      state.forEach((ele) => (ele.selected = ['']));
+    },
   },
 });
 
@@ -121,4 +124,5 @@ export const {
   delOption,
   select,
   checkBoxSelect,
+  reset,
 } = questionSlice.actions;

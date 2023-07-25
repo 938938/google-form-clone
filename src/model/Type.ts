@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from 'react';
+
 export type TitleType = {
   title: string;
   sub: string;
@@ -25,4 +27,9 @@ export type OptionType = {
 
 export type PreviewType = {
   preview: boolean;
+};
+
+export type ModalType = {
+  state: boolean;
+  setState: Dispatch<SetStateAction<boolean>>;
 };
