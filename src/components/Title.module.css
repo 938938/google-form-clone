@@ -9,6 +9,7 @@
   flex-direction: column;
   padding: 20px 12px;
   width: 100%;
+  position: relative;
 }
 
 .title {

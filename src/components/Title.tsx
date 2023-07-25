@@ -4,6 +4,7 @@ import { ChangeEvent } from 'react';
 import { setSub, setTitle } from '../store/titleSlice';
 import style from './Title.module.css';
 import { PreviewType } from '../model/Type';
+import SideBtn from './SideBtn';
 
 const Title: React.FC<PreviewType> = ({ preview }) => {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ const Title: React.FC<PreviewType> = ({ preview }) => {
           />
         )}
       </label>
+      <SideBtn preview={preview} />
     </div>
   );
 };
