@@ -5,7 +5,7 @@ import {
   del,
   editRequire,
   editTitle,
-} from '../store/questionSlice';
+} from '../../store/questionSlice';
 import style from './Question.module.css';
 import Options from './Options';
 import { useDispatch } from 'react-redux';

@@ -5,7 +5,7 @@ import {
   delEtcOption,
   delOption,
   editOption,
-} from '../store/questionSlice';
+} from '../../store/questionSlice';
 import { ChangeEvent } from 'react';
 import { RxCross2 } from 'react-icons/rx';
 import style from './Options.module.css';

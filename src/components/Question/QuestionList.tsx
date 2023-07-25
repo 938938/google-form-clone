@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import Question from './Question';
-import { RootState } from '../store/store';
+import { RootState } from '../../store/store';
 
 const QuestionList = () => {
   const data = useSelector((state: RootState) => state.question);

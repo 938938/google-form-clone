@@ -1,14 +1,11 @@
+import { RouterProvider } from 'react-router-dom';
 import './App.css';
-import AddQuestion from './components/AddQuestion';
-import QuestionList from './components/QuestionList';
-import Title from './components/Title';
+import { routers } from './router';
 
 function App() {
   return (
     <div className='App'>
-      <Title />
-      <QuestionList />
-      <AddQuestion />
+      <RouterProvider router={routers} />
     </div>
   );
 }
