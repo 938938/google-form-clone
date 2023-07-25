@@ -9,15 +9,7 @@ import {
 import style from './Question.module.css';
 import Options from './Options';
 import { useDispatch } from 'react-redux';
-import {
-  RxButton,
-  RxTextAlignLeft,
-  RxDisc,
-  RxCheckbox,
-  RxCheckCircled,
-  RxCopy,
-  RxTrash,
-} from 'react-icons/rx';
+import { RxCopy, RxTrash } from 'react-icons/rx';
 import Container from '../common/Container';
 import { QuestionType } from '../../model/Type';
 
@@ -28,6 +20,7 @@ const Question: React.FC<QuestionType> = ({
   options,
   isEtc,
   isRequired,
+  selected,
 }) => {
   const dispatch = useDispatch();
   const [Qtype, setQType] = useState<string>(type);
@@ -60,27 +53,12 @@ const Question: React.FC<QuestionType> = ({
           required
         />
         <select defaultValue={type} onChange={editTypeHandler}>
-          <option value='short'>
-            <RxButton />
-            단답형
-          </option>
-          <option value='paragraph'>
-            <RxTextAlignLeft />
-            장문형
-          </option>
+          <option value='short'>단답형</option>
+          <option value='paragraph'>장문형</option>
           <hr />
-          <option value='multiple'>
-            <RxDisc />
-            객관식 질문
-          </option>
-          <option value='checkboxes'>
-            <RxCheckbox />
-            체크박스
-          </option>
-          <option value='dropdown'>
-            <RxCheckCircled />
-            드롭박스
-          </option>
+          <option value='multiple'>객관식 질문</option>
+          <option value='checkboxes'>체크박스</option>
+          <option value='dropdown'>드롭박스</option>
         </select>
       </div>
       <div className={style.optionsBox}>
@@ -90,6 +68,7 @@ const Question: React.FC<QuestionType> = ({
           options={options}
           isEtc={isEtc}
           isRequired={isRequired}
+          selected={selected}
         />
       </div>
       <div className={style.btns}>

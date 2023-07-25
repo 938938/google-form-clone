@@ -6,6 +6,7 @@ import { PreviewType } from '../model/Type';
 
 const QuestionList: React.FC<PreviewType> = ({ preview }) => {
   const data = useSelector((state: RootState) => state.question);
+  console.log(data);
   return (
     <div>
       {data.map((ele, idx) =>
@@ -18,6 +19,7 @@ const QuestionList: React.FC<PreviewType> = ({ preview }) => {
             options={ele.options}
             isEtc={ele.isEtc}
             isRequired={ele.isRequired}
+            selected={ele.selected}
           />
         ) : (
           <Question
@@ -28,6 +30,7 @@ const QuestionList: React.FC<PreviewType> = ({ preview }) => {
             options={ele.options}
             isEtc={ele.isEtc}
             isRequired={ele.isRequired}
+            selected={ele.selected}
           />
         )
       )}

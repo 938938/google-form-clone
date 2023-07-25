@@ -9,6 +9,7 @@ const initialState: QuestionType[] = [
     options: ['옵션1'],
     isEtc: false,
     isRequired: false,
+    selected: [],
   },
 ];
 
@@ -25,6 +26,7 @@ const questionSlice = createSlice({
         options: ['옵션1'],
         isEtc: false,
         isRequired: false,
+        selected: [],
       };
       state.push(defaultValue);
     },
@@ -86,6 +88,22 @@ const questionSlice = createSlice({
       }
       state[Qidx].options.splice(Oidx, 1);
     },
+
+    // 답변 체크
+    select: (state, action) => {
+      const { idx, value } = action.payload;
+      state[idx].selected[0] = value;
+    },
+    checkBoxSelect: (state, action) => {
+      const { idx, value, checked } = action.payload;
+      console.log(idx, value, checked);
+      if (checked) {
+        state[idx].selected.push(value);
+      } else {
+        const optionIdx = state[idx].selected.indexOf(value);
+        state[idx].selected.splice(optionIdx, 1);
+      }
+    },
   },
 });
 
@@ -102,4 +120,6 @@ export const {
   delEtcOption,
   editOption,
   delOption,
+  select,
+  checkBoxSelect,
 } = questionSlice.actions;

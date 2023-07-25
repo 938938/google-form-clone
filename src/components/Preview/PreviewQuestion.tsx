@@ -10,6 +10,7 @@ const PreviewQuestion: React.FC<QuestionType> = ({
   options,
   isEtc,
   isRequired,
+  selected,
 }) => {
   return (
     <Container>
@@ -25,6 +26,7 @@ const PreviewQuestion: React.FC<QuestionType> = ({
           options={options}
           isEtc={isEtc}
           isRequired={isRequired}
+          selected={selected}
         />
       </div>
     </Container>
