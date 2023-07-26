@@ -1,0 +1,12 @@
+.drag {
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+}
+
+.onDrag {
+  width: 100%;
+  height: 5px;
+  border-radius: 10px;
+  background-color: #e5e5e5;
+}

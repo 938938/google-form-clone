@@ -14,6 +14,7 @@ export type QuestionType = {
   isEtc: boolean;
   isRequired: boolean;
   selected: string[];
+  onDragHandler?: (event: React.DragEvent<HTMLDivElement>, idx: number) => void;
 };
 
 export type OptionType = {
@@ -23,6 +24,7 @@ export type OptionType = {
   isEtc: boolean;
   isRequired: boolean;
   selected: string[];
+  onDragHandler?: (event: React.DragEvent<HTMLDivElement>, idx: number) => void;
 };
 
 export type PreviewType = {

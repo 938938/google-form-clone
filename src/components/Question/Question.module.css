@@ -38,7 +38,7 @@
   font-size: 1rem;
 }
 
-.optionsBox li {
+.optionsBox div {
   display: flex;
   align-items: center;
 }

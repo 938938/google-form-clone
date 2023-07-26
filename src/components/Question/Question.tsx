@@ -21,6 +21,7 @@ const Question: React.FC<QuestionType> = ({
   isEtc,
   isRequired,
   selected,
+  onDragHandler,
 }) => {
   const dispatch = useDispatch();
   const [Qtype, setQType] = useState<string>(type);
@@ -45,43 +46,47 @@ const Question: React.FC<QuestionType> = ({
 
   return (
     <Container>
-      <div className={style.questionHeader}>
-        <input
-          placeholder='질문'
-          value={title}
-          onChange={editHandler}
-          required
-        />
-        <select defaultValue={type} onChange={editTypeHandler}>
-          <option value='short'>단답형</option>
-          <option value='paragraph'>장문형</option>
-          <option value='multiple'>객관식 질문</option>
-          <option value='checkboxes'>체크박스</option>
-          <option value='dropdown'>드롭박스</option>
-        </select>
-      </div>
-      <div className={style.optionsBox}>
-        <Options
-          idx={idx}
-          type={Qtype}
-          options={options}
-          isEtc={isEtc}
-          isRequired={isRequired}
-          selected={selected}
-        />
-      </div>
-      <div className={style.btns}>
-        <button onClick={copyHandler} type='button'>
-          <RxCopy className='iconBtn' />
-        </button>
-        <button onClick={delHandler} type='button'>
-          <RxTrash className='iconBtn' />
-        </button>
-        <p>| 필수</p>
-        <div className={style.toggle} onClick={toggleHandler}>
-          <div
-            className={`${style.toggleCircle} ${isRequired && style.toggleOn}`}
+      <div draggable onDragStart={(e) => onDragHandler!(e, idx)}>
+        <div className={style.questionHeader}>
+          <input
+            placeholder='질문'
+            value={title}
+            onChange={editHandler}
+            required
           />
+          <select defaultValue={type} onChange={editTypeHandler}>
+            <option value='short'>단답형</option>
+            <option value='paragraph'>장문형</option>
+            <option value='multiple'>객관식 질문</option>
+            <option value='checkboxes'>체크박스</option>
+            <option value='dropdown'>드롭박스</option>
+          </select>
+        </div>
+        <div className={style.optionsBox}>
+          <Options
+            idx={idx}
+            type={Qtype}
+            options={options}
+            isEtc={isEtc}
+            isRequired={isRequired}
+            selected={selected}
+          />
+        </div>
+        <div className={style.btns}>
+          <button onClick={copyHandler} type='button'>
+            <RxCopy className='iconBtn' />
+          </button>
+          <button onClick={delHandler} type='button'>
+            <RxTrash className='iconBtn' />
+          </button>
+          <p>| 필수</p>
+          <div className={style.toggle} onClick={toggleHandler}>
+            <div
+              className={`${style.toggleCircle} ${
+                isRequired && style.toggleOn
+              }`}
+            />
+          </div>
         </div>
       </div>
     </Container>

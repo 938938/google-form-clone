@@ -27,3 +27,28 @@
 .dropdownOption {
   margin-left: 10px;
 }
+
+/* dnd 관련 */
+
+.dndBox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.dndBox div {
+  width: 100%;
+}
+
+.drag {
+  width: 100%;
+  height: 1px;
+  background-color: transparent;
+}
+
+.onDrag {
+  width: 100%;
+  height: 5px;
+  border-radius: 10px;
+  background-color: #e5e5e5;
+}

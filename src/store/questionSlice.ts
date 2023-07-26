@@ -54,6 +54,16 @@ const questionSlice = createSlice({
       const idx = action.payload;
       state[idx].isRequired = !state[idx].isRequired;
     },
+    dndSort: (state, action) => {
+      const { idx, itemIdx } = action.payload;
+      // idx : 질문이 들어갈 칸의 앞 번호(ex. 0과 1번 사이 : 0)
+      // itemIdx : 이동하는 질문의 인덱스
+      const Item = {
+        ...state[itemIdx],
+      };
+      state.splice(itemIdx, 1);
+      state.splice(idx + 1, 0, Item);
+    },
 
     // 질문 타이틀 적용
     editTitle: (state, action) => {
@@ -88,6 +98,14 @@ const questionSlice = createSlice({
       }
       state[Qidx].options.splice(Oidx, 1);
     },
+    listSort: (state, action) => {
+      const { Qidx, Oidx, itemIdx } = action.payload;
+      // idx : 질문이 들어갈 칸의 앞 번호(ex. 0과 1번 사이 : 0)
+      // itemIdx : 이동하는 질문의 인덱스
+      const Item = state[Qidx].options[itemIdx];
+      state[Qidx].options.splice(itemIdx, 1);
+      state[Qidx].options.splice(Oidx + 1, 0, Item);
+    },
 
     // 답변 체크
     select: (state, action) => {
@@ -116,12 +134,14 @@ export const {
   copy,
   del,
   editRequire,
+  dndSort,
   editTitle,
   addOptions,
   addEtcOption,
   delEtcOption,
   editOption,
   delOption,
+  listSort,
   select,
   checkBoxSelect,
   reset,
